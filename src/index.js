@@ -1,13 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {state} from './Redux/mappings/mapping';
-import {createStore} from 'redux';
+import {createStore,applyMiddleware} from 'redux';
 import {Provider} from 'react-redux';
+import thunk from 'redux-thunk';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-const appstate=createStore(state);
+const appstate=createStore(state,applyMiddleware(thunk));
 
 ReactDOM.render(<Provider store={appstate}><App /></Provider>, document.getElementById('root'));
 

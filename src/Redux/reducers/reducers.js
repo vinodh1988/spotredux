@@ -16,6 +16,15 @@ export function homeReducer(state=message,action){
 
 }
 
+export function winnerReducer(state={winners:[]},action){
+    switch(action.type){
+        case "WINNER_ACTION":
+                  return {winners:action.data};
+        default:
+                  return state;
+    }
+}
+
 export function dummyReducer(){
 
     return "REACT REDUX APP";
